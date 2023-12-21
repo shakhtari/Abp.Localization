@@ -1,0 +1,39 @@
+﻿@page "/Grid"
+@using Syncfusion.Blazor.Grids
+@using ML.Localization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<MLResource> L
+
+<h3>@L["Order Lists"]</h3>
+
+<p>
+    <Syncfusion.Blazor.Grids.SfGrid DataSource="@GetOrders" AllowPaging="true" AllowSorting="true" AllowFiltering="true" AllowGrouping="true">
+    <Syncfusion.Blazor.Grids.GridColumns>
+     <Syncfusion.Blazor.Grids.GridColumn Field=@nameof(Order.ID) HeaderText="@L["OrderID"]" TextAlign="TextAlign.Left" Width="120"></Syncfusion.Blazor.Grids.GridColumn>
+     <Syncfusion.Blazor.Grids.GridColumn Field=@nameof(Order.Name) HeaderText="@L["Name"]" Width="150"></Syncfusion.Blazor.Grids.GridColumn>
+     <Syncfusion.Blazor.Grids.GridColumn Field=@nameof(Order.OrderDate) HeaderText="@L["OrderDate"]" Format="d" Type="ColumnType.Date" TextAlign="TextAlign.Left" Width="130"></Syncfusion.Blazor.Grids.GridColumn>
+     
+   </Syncfusion.Blazor.Grids.GridColumns>
+    
+    </Syncfusion.Blazor.Grids.SfGrid>
+</p>
+
+@code {
+    public class Order
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime OrderDate { get; set; }
+    }
+    public List<Order> GetOrders { get; set; }
+    protected override void OnInitialized()
+    {
+        GetOrders = Enumerable.Range(1, 50).Select(x => new Order()
+            {
+                ID = 2000 + x,
+                Name = (new string[] { @L["Computer"], @L["Mobile Phone"], @L["Smart Watch"] })[new Random().Next(3)],
+                OrderDate = DateTime.Now.AddDays(-x),
+            }
+        ).ToList();
+    }
+}

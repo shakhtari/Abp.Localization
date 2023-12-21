@@ -1,0 +1,15 @@
+{
+  "culture": "tr",
+  "texts": {
+    "Menu:Home": "Ana sayfa",
+    "Welcome": "Hoşgeldiniz",
+    "LongWelcomeMessage": "Uygulamaya hoşgeldiniz. Bu, ABP framework'ü üzerine bina edilmiş bir başlangıç projesidir. Daha fazla bilgi için abp.io adresini ziyaret edebilirsiniz.",
+    "Name": "Ad",
+    "OrderDate": "Sipariş Tarihi",
+    "OrderID": "Sipariş Numarası",
+    "Order Lists": "Sipariş listeleri",
+    "Computer": "Bilgisayar",
+    "Mobile Phone": "Cep Telefonu",
+    "Smart Watch": "Akilli Saat"
+  }
+}
